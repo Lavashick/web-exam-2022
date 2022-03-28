@@ -13,7 +13,7 @@
           <b-form v-if="show" v-on:submit.prevent="submitForm">
             <b-form-group
               id="input-group-1"
-              label="Комментарий:"
+              label="Добавление животного:"
               label-for="input-1"
               class="mb-2"
             > 
