@@ -8,13 +8,17 @@
       </b-col>
       <b-col class="col-8 right-block">
           <h1 class="mb-3">О нас</h1>
-        <p>
+        <span>
           {{ about_page.text }}
-        </p>
+        </span>
 
-        <h1>
+          <h1>
             Наши животные: 
         </h1>
+
+        <our-animals-component/>
+
+
 
 
 
@@ -26,9 +30,10 @@
 <script>
 import axios from "axios";
 import LeftBlockComponent from "@/components/LeftBlockComponent.vue";
+import OurAnimalsComponent from '@/components/OurAnimalsComponent.vue';
 
 export default {
-  components: { LeftBlockComponent },
+  components: { LeftBlockComponent, OurAnimalsComponent },
   name: "AboutPage",
   data() {
     return {

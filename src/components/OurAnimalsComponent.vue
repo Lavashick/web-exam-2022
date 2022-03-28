@@ -5,8 +5,6 @@
         <li>Номер животного: {{ animal.id }}</li>
         <li>Имя: {{ animal.name }}</li>
         <li>Вид: {{ animal.type }}</li>
-        <li>Дата рождения: {{ animal.created_at }}</li>
-        <li>Дата обновления: {{ animal.updated_at }}</li>
         <li>Вес: {{ animal.weight }}</li>
         <li>Цвет: {{ animal.color }}</li>
         <li>Пол: {{ animal.sex }}</li>
