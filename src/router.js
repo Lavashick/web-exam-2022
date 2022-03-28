@@ -6,10 +6,12 @@ export default new VueRouter({
     routes: [
         {
             path: '',
+            name: 'home',
             component: HomePage
         },
         {
             path: '/about',
+            name: 'about',
             component: AboutPage
         },
     ],
