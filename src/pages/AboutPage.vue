@@ -15,6 +15,9 @@
         <h1>
             Наши животные: 
         </h1>
+
+
+
       </b-col>
     </b-row>
   </div>
@@ -30,6 +33,7 @@ export default {
   data() {
     return {
       about_page: [],
+      baby: [],
     };
   },
   async created() {

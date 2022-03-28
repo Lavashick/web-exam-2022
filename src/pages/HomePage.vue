@@ -9,10 +9,15 @@
       <b-col class="col-8 right-block">
               <h1 class="mb-3">Фермерский роддом номер 5</h1>
         <img :src="home_page.image" width="70%" alt="Зайчики" />
+        <p>{{home_page.text}}</p>
 
-        <p>
-             {{home_page.text }}
-        </p>
+
+        <h1>
+            Наши животные: 
+        </h1>
+
+        <our-animals-component/>
+
       </b-col>
     </b-row>
   </div>
@@ -21,9 +26,10 @@
 <script>
 import axios from "axios";
 import LeftBlockComponent from "@/components/LeftBlockComponent.vue";
+import OurAnimalsComponent from '@/components/OurAnimalsComponent.vue';
 
 export default {
-  components: { LeftBlockComponent },
+  components: { LeftBlockComponent, OurAnimalsComponent },
   name: "HomePage",
   data() {
     return {
