@@ -2,21 +2,21 @@
   <div>
     <header-component />
     <b-row class="main-container justify-content-center" no-gutters>
-          <b-col>
-      <router-view />
+      <b-col>
+        <router-view />
       </b-col>
     </b-row>
   </div>
 </template>
 <script>
-import HeaderComponent from './components/HeaderComponent.vue'
+import HeaderComponent from "./components/HeaderComponent.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HeaderComponent
-  }
-}
+    HeaderComponent,
+  },
+};
 </script>
 
 <style>
@@ -37,6 +37,10 @@ h1 {
 
 img {
   border-radius: 8px;
+  max-width: 800px;
 }
 
+.additional {
+  color: grey;
+}
 </style>
