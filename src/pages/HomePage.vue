@@ -16,30 +16,30 @@
               label="Добавление животного:"
               label-for="input-1"
               class="mb-2"
-            > 
-              <b-form-select v-model="form.type" :options="type_options"></b-form-select>
+            >
+              {{ fields.type.title }}: <b-form-select v-model="form.type" :options="type_options"></b-form-select>
               <b-form-input
                 id="input-name"
                 type="text"
-                placeholder="Имя"
+                :placeholder="fields.name.title"
                 required
                 v-model="form.name"
               ></b-form-input>
               <b-form-input
                 id="input-weight"
                 type="text"
-                placeholder="Вес"
+                :placeholder="fields.weight.title"
                 required
                 v-model="form.weight"
               ></b-form-input>
               <b-form-input
                 id="input-color"
                 type="text"
-                placeholder="Цвет"
+                :placeholder="fields.color.title"
                 required
                 v-model="form.color"
               ></b-form-input>
-              <b-form-select v-model="form.sex" :options="sex_options"></b-form-select>
+              {{ fields.sex.title }}: <b-form-select v-model="form.sex" :options="sex_options"></b-form-select>
             </b-form-group>
 
             <b-button type="submit" variant="primary">Отправить</b-button>
@@ -62,6 +62,7 @@ export default {
       show: true,
       home_page: [],
       baby_form: [],
+      fields: null,
       form: {
         type: "",
         name: "",
@@ -69,15 +70,8 @@ export default {
         color: "",
         sex: "",
       },
-      type_options: [
-        { value: 'cow', text: 'Корова' },
-        { value: 'rabbit', text: 'Заяц' },
-        { value: 'sheep', text: 'Овца' },
-      ],
-      sex_options: [
-        { value: 'Мальчик', text: 'Мальчик' },
-        { value: 'Девочка', text: 'Девочка' },
-      ],
+      type_options: [],
+      sex_options: [],
     };
   },
   async created() {
@@ -86,6 +80,16 @@ export default {
         "https://demo-api.vsdev.space/api/farm/home_page"
       );
       this.home_page = res.data;
+
+      this.fields = (await axios.get(
+        "https://demo-api.vsdev.space/api/farm/baby/form"
+      )).data.fields;
+
+      this.type_options = this.fields.type.values;
+      this.form.type = this.type_options[0];
+
+      this.sex_options = this.fields.sex.values;
+      this.form.sex = this.sex_options[0];
     } catch (e) {
       console.error(e);
     }
