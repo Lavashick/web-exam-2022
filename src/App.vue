@@ -2,7 +2,7 @@
   <div>
     <header-component />
     <b-row class="main-container justify-content-center" no-gutters>
-          <b-col md="11">
+          <b-col>
       <router-view />
       </b-col>
     </b-row>
@@ -29,7 +29,14 @@ export default {
 
 .main-container {
   margin: 90px 20px !important;
+}
+
+h1 {
   text-align: center;
+}
+
+img {
+  border-radius: 8px;
 }
 
 </style>

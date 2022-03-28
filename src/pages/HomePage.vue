@@ -1,36 +1,64 @@
 <template>
   <div>
-    <h1>HomePage</h1>
+    <h1 class="mb-3">Фермерский роддом номер 5</h1>
 
     <b-row class="justify-content-center">
-      <b-col class="col-2 left-block">
-        <div class="num-3">3</div>
-        <div class="num-4">4</div>
+      <b-col class="col-4 left-block">
+        <left-block-component/>
       </b-col>
       <b-col class="col-8 right-block">
-        <b-row>
-          <b-col class="num-5 col-6"> 6 </b-col>
-          <b-col class="num-6 col-6"> 7 </b-col>
-        </b-row>
+          <img 
+          src="/images/home_page_img.jpg"
+          width="70%"
+          alt="Зайчики"
+        />
+
+              <p>
+                  Значимость этих проблем настолько очевидна, что дальнейшее развитие различных форм деятельности обеспечивает широкому кругу (специалистов) участие в формировании новых предложений. Повседневная практика показывает, что реализация намеченных плановых заданий в значительной степени обуславливает создание модели развития.
+Значимость этих проблем настолько очевидна, что дальнейшее развитие различных форм деятельности обеспечивает широкому кругу (специалистов) участие в формировании новых предложений. Идейные соображения высшего порядка, а также дальнейшее развитие различных форм деятельности позволяет оценить значение новых предложений.
+С другой стороны постоянное информационно-пропагандистское обеспечение нашей деятельности обеспечивает широкому кругу (специалистов) участие в формировании позиций, занимаемых участниками в отношении поставленных задач. С другой стороны рамки и место обучения кадров способствует подготовки и реализации модели развития.
+</p> 
       </b-col>
     </b-row>
   </div>
 </template>
 
 <script>
+import axios from "axios";
+import LeftBlockComponent from '@/components/LeftBlockComponent.vue';
+
 export default {
+  components: { LeftBlockComponent },
   name: "HomePage",
+  data() {
+    return {
+      left_results: [],
+    };
+  },
+  async created() {
+    try {
+      const res = await axios.get(
+        "https://demo-api.vsdev.space/api/farm/left_widget"
+      );
+      this.left_results = res.data;
+    } catch (e) {
+      console.error(e);
+    }
+  },
 };
 </script>
 
 <style>
-.num-5, .num-6, .num-4, .num-3 {
-    background-color: bisque;
+.num-5,
+.num-6,
+.num-4,
+.num-3 {
+  background-color: bisque;
 }
 
 .left-block,
 .right-block {
   background-color: aquamarine;
-  margin: 0 20px;
+  padding: 0 20px;
 }
 </style>
